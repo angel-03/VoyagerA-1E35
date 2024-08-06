@@ -102,15 +102,17 @@ public class GameController : MonoBehaviour
 
         int chance = Random.Range(0,9);
     
-        if(chance > 2)
+        if(chance > 6)
         {
             normal.SetActive(true);
             correctAns = "Normal";
         }
         else
         {
-            randomAnomaly = Random.Range(0,anomalies.Length);
+            randomAnomaly = Random.Range(10,anomalies.Length);
             anomalies[randomAnomaly].SetActive(true);
+            if(anomalies[10])
+                GameObject.Find("LadyTyping").GetComponent<LadyAnomaly>().StartLaughing(true);
             correctAns = "Anomaly";
         }
         Debug.Log(correctAns);
